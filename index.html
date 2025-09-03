@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QatuOS</title>
+  <link rel="stylesheet" href="css/style.css?v=4">
+</head>
+<body>
+  <div id="bootScreen" class="fullscreen boot-screen">
+    <img src="/boot/efi/assets/qatuos.png" class="boot-logo" alt="">
+    <div class="boot-text">QatuOS</div>
+    <div id="bootOptions" class="boot-options">
+      <button class="boot-option">QatuOS</button>
+      <button class="boot-option">Recovery</button>
+      <button class="boot-option">Diagnostics</button>
+    </div>
+  </div>
+
+  <div id="enterScreen" class="fullscreen enter-screen hidden">
+    <div class="enter-box">
+      <img src="/boot/efi/assets/qatuos.png" class="enter-logo" alt="">
+      <button id="enterBtn" class="enter-btn">Enter</button>
+    </div>
+  </div>
+
+  <div id="loadingScreen" class="loading-screen hidden fullscreen">
+    <img src="/boot/efi/assets/qatuos.gif" class="loading-gif" alt="">
+    <div class="loading-text">Loading QatuOS…</div>
+  </div>
+
+  <div id="wallpaper" class="wallpaper"></div>
+
+  <div id="topbar" class="topbar" style="opacity:0">
+    <div class="topbar-left">QatuOS</div>
+    <div class="topbar-right">
+      <span id="time">--:--</span>
+      <span id="battery">--%</span>
+    </div>
+  </div>
+
+  <div id="dock" class="dock" style="display:none;opacity:0">
+    <img src="/boot/efi/assets/qatuos.png" id="launcherBtn" class="dock-icon" alt="">
+    <img src="/boot/efi/assets/terminal.png" id="termBtn" class="dock-icon" alt="">
+    <img src="/boot/efi/assets/chrome.png" id="browserBtn" class="dock-icon" alt="">
+    <img src="/boot/efi/assets/solocentral.png" id="solocentralBtn" class="dock-icon" alt="">
+    <img src="/boot/efi/assets/files.png" id="filesBtn" class="dock-icon" alt="">
+    <img src="/boot/efi/assets/settings.png" id="settingsBtn" class="dock-icon" alt="">
+  </div>
+
+  <div id="launcher" class="launcher hidden">
+  <div class="launcher-grid">
+    <div class="launcher-app">Terminal</div>
+    <div class="launcher-app">Browser</div>
+        <div class="launcher-app">Solo Central</div>
+    <div class="launcher-app">Files</div>
+    <div class="launcher-app">Settings</div>
+  </div>
+</div>
+
+
+  <div id="launcher" class="launcher hidden"></div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/desktop.js"></script>
+  <script src="js/boot.js"></script>
+</body>
+</html>

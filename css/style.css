@@ -1,0 +1,152 @@
+* {
+  cursor: url('/boot/efi/assets/cursor.png') 16 16, auto;
+  -webkit-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+body,html {
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:#000;
+  color:#fff;
+  overflow:hidden;
+}
+.fullscreen {
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:3000;
+}
+.hidden {display:none!important}
+.boot-screen {
+  flex-direction:column;
+  gap:18px;
+  background:#000;
+  transition:opacity .6s ease;
+}
+.boot-logo {width:120px;height:auto}
+.boot-text {color:#fff;font-size:18px}
+.boot-options {margin-top:12px;display:flex;gap:8px}
+.boot-option {background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.04);color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer}
+.boot-option.active {background:#007aff;color:#fff;box-shadow:0 8px 20px rgba(0,122,255,0.18)}
+.enter-screen {background: url('/boot/efi/assets/wall.png') center/cover no-repeat; transition:opacity .6s ease}
+.enter-box {padding:36px;border-radius:16px;background:rgba(0,0,0,0.5);backdrop-filter:blur(12px);display:flex;flex-direction:column;align-items:center;gap:18px}
+.enter-logo {width:92px;height:auto}
+.enter-btn {padding:12px 28px;border-radius:12px;border:none;background:rgba(255,255,255,0.14);color:#fff;font-weight:600;cursor:pointer;transition:background .18s}
+.enter-btn:hover {background:rgba(255,255,255,0.2)}
+.loading-screen {background:#000;transition:opacity .6s ease}
+.loading-gif {width:80px;height:80px;margin-bottom:12px}
+.loading-text {color:#fff;font-size:16px}
+.wallpaper {position:fixed;inset:0;background:url('/boot/efi/assets/wall.png') center/cover no-repeat;opacity:0;transition:opacity .6s ease;z-index:0}
+.topbar {position:fixed;top:12px;left:18px;right:18px;height:36px;border-radius:12px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(16px);background:rgba(8,8,8,0.45);z-index:1200;transition:opacity .6s ease}
+.topbar-left {font-weight:700;color:#fff}
+.topbar-right {display:flex;gap:12px;color:#fff;font-weight:600}
+.dock {position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;align-items:flex-end;gap:14px;padding:10px 16px;border-radius:18px;background:rgba(16,16,16,0.6);backdrop-filter:blur(18px);z-index:1100;transition:opacity .6s ease}
+.dock.left {left:12px;top:50%;transform:none;flex-direction:column;padding:12px}
+.dock-icon {width:56px;height:56px;border-radius:12px;transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s;cursor:pointer}
+.dock-icon:hover {transform:translateY(-8px) scale(1.18);box-shadow:0 12px 30px rgba(0,0,0,0.45)}
+.launcher {position:fixed;inset:0;display:flex;align-content:center;justify-content:center;gap:28px;padding:28px;z-index:1400;backdrop-filter:blur(30px);background:rgba(6,6,6,0.6)}
+.window.active {opacity:1;transform:scale(1)}
+.win-controls {display:flex;gap:8px}
+.win-btn {width:12px;height:12px;border-radius:50%}
+.win-btn.red {background:#ff5f57}
+.win-btn.yellow {background:#ffbd2e}
+.win-btn.green {background:#28c840}
+.hidden {display:none!important}
+
+.window {
+  position: absolute;
+  top: 12vh;
+  left: 12vw;
+  width: 720px;
+  height: 480px;
+  background: rgba(20,20,20,0.95);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform .25s, opacity .25s;
+}
+
+.window-header {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 8px;
+  background: rgba(40,40,40,0.9);
+  cursor: grab;
+}
+
+.window-body {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.window-body iframe,
+.window-body > div {
+  width: 100%;
+  height: 100%;
+  border: none;
+  flex: 1;
+}
+
+
+.launcher {
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(18px);
+  opacity:0;
+  transition:opacity .2s ease;
+  z-index:2000;
+}
+.launcher.show {opacity:1}
+.launcher.hidden {display:none}
+.launcher-grid {
+  background:rgba(20,20,20,0.9);
+  padding:24px;
+  border-radius:20px;
+  display:grid;
+  grid-template-columns:repeat(3,120px);
+  gap:20px;
+}
+.launcher-app {
+  width:120px;
+  height:120px;
+  background:rgba(255,255,255,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  transition:background .2s,transform .2s;
+}
+.launcher-app:hover {
+  background:rgba(255,255,255,0.2);
+  transform:scale(1.05);
+}
+
+body.dark-mode {
+  background: #0a0a0a;
+  color: #f0f0f0;
+}
+
+body.light-mode {
+  background: #f9f9f9;
+  color: #111;
+}

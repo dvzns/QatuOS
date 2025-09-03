@@ -1,0 +1,48 @@
+#bootScreen {
+  background:#0b0b0b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  z-index:2000;
+}
+.boot-inner { text-align:center; color:#fff }
+.boot-logo { width:96px; height:96px; margin-bottom:20px }
+.boot-loader {
+  width:32px;height:32px;
+  border:3px solid rgba(255,255,255,.2);
+  border-top:3px solid #fff;
+  border-radius:50%;
+  margin:20px auto;
+  animation:spin 1s linear infinite
+}
+.boot-text { font-size:20px; font-weight:600; margin-top:10px }
+@keyframes spin { 0%{transform:rotate(0)}100%{transform:rotate(360deg)} }
+
+#enterScreen {
+  background:url('/boot/efi/assets/wall.png') center/cover no-repeat;
+  backdrop-filter:blur(20px);
+  display:flex;align-items:center;justify-content:center;
+}
+.enter-box {
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(20px);
+  padding:40px 60px;
+  border-radius:16px;
+  text-align:center;
+  color:#fff
+}
+.enter-logo {
+  width:100px;height:100px;margin-bottom:20px
+}
+#enterBtn {
+  padding:14px 30px;
+  border:none;
+  border-radius:10px;
+  background:#0af;
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer
+}
+#enterBtn:hover { background:#09c }

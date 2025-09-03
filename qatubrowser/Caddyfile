@@ -1,0 +1,21 @@
+{
+    # Global options
+    
+on_demand_tls {
+ask http://localhost:3000
+}
+}
+
+https:// {
+    tls {
+on_demand
+}
+encode gzip
+    handle {
+            reverse_proxy localhost:8080
+    }
+}
+
+:3000 {
+respond "i just lost my dawgggggggggggggg"
+}

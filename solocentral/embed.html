@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Embed Loader</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+  <style>
+    html,body{height:100%;width:100%;margin:0;padding:0;background:#000;overflow:hidden;font-family:'Quicksand',sans-serif}
+    #iframe-container{position:fixed;inset:0;z-index:0}
+    iframe{width:100%;height:100%;border:0;display:block}
+    #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:9999;color:#fff;font-weight:700;font-size:20px;transition:opacity .8s ease;background:transparent}
+    #loading.fade-out{opacity:0;pointer-events:none}
+    #vanta-bg{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+    #loading-text{position:relative;z-index:2;user-select:none}
+  </style>
+  <script src="vanta/idk.js"></script>
+  <script src="vanta/three.js"></script>
+</head>
+<body>
+  <div id="iframe-container"></div>
+  <div id="loading">
+    <div id="vanta-bg"></div>
+    <div id="loading-text">registering service worker..</div>
+  </div>
+
+  <script>
+    let vantaEffect = null;
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        vantaEffect = VANTA.WAVES({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0x280000
+        });
+      } catch (e) {}
+      handleHash();
+    });
+
+    window.addEventListener('hashchange', handleHash);
+
+    function hideLoadingSmooth() {
+      const loading = document.getElementById('loading');
+      loading.classList.add('fade-out');
+      loading.addEventListener('transitionend', () => {
+        try { loading.style.display = 'none'; } catch (e) {}
+        try { if (vantaEffect && typeof vantaEffect.destroy === 'function') vantaEffect.destroy(); } catch (e) {}
+      }, { once: true });
+    }
+
+    async function tryRegisterSW() {
+      if (!('serviceWorker' in navigator)) return;
+      try {
+        const swUrl = new URL('sw.js', document.baseURI).toString();
+        await navigator.serviceWorker.register(swUrl).catch(()=>{});
+      } catch (e) {}
+    }
+
+    async function handleHash() {
+      const container = document.getElementById('iframe-container');
+      container.innerHTML = '';
+      let raw = '';
+      try {
+        raw = decodeURIComponent(location.hash.slice(1).trim());
+      } catch (e) {
+        alert('Bad # | service worker stays unregistered');
+        return;
+      }
+      if (!raw) {
+        alert('Bad # | service worker stays unregistered');
+        return;
+      }
+      let dest;
+      try {
+        dest = new URL(raw);
+      } catch (e) {
+        try {
+          dest = new URL(raw, document.baseURI);
+        } catch (e2) {
+          alert('Bad # | service worker stays unregistered');
+          return;
+        }
+      }
+      const destHref = dest.toString();
+      tryRegisterSW();
+
+      let didLoad = false;
+      try {
+        const controller = new AbortController();
+        const tm = setTimeout(()=>controller.abort(), 4000);
+        const resp = await fetch(destHref, { method: 'HEAD', signal: controller.signal });
+        clearTimeout(tm);
+        if (!resp.ok) {
+          alert('Bad # | service worker stays unregistered');
+          return;
+        }
+      } catch (err) {
+      }
+
+      const iframe = document.createElement('iframe');
+      iframe.src = destHref;
+      let failTimer = setTimeout(() => {
+        try { if (container.contains(iframe)) container.removeChild(iframe); } catch (e) {}
+        if (!didLoad) alert('Bad # | service worker stays unregistered');
+      }, 10000);
+
+      iframe.onload = () => {
+        didLoad = true;
+        clearTimeout(failTimer);
+        hideLoadingSmooth();
+      };
+
+      container.appendChild(iframe);
+    }
+
+    "use strict";
+let destination = "";
+
+try {
+  destination = new URL(location.hash.slice(1)).toString();
+} catch (err) {
+  alert(`Bad # string or bad URL. Got error:\n${err}`);
+  throw err;
+}
+
+registerSW()
+  .then(() => {        
+    setTimeout(() => {
+      lowtaperfade()
+  }, 1500);
+    setTimeout(() => {
+      window.open(
+        __uv$config.prefix + __uv$config.encodeUrl(destination),
+        "_self"
+      );
+    }, 1700);
+    setTimeout(() => {
+      highslipperybuzz()
+  }, 7000);
+  })
+  .catch((err) => {
+    alert(`Encountered error:\n${err}`);
+  });
+
+  </script>
+</body>
+</html>

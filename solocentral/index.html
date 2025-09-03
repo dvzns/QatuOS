@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>solo central — home</title>
+  <meta property="og:title" content="solo central v6">
+  <meta name="theme-color" content="#00fff7">
+  <meta name="msapplication-TileColor" content="#00fff7">
+  <meta property="og:image" content="/rizz/assets/png.png">
+  <meta name="description" content="a really cool g*me site!">
+  <meta property="og:description" content="a really cool g*me site!">
+  <link rel="stylesheet" href="rizz.styles.css">
+  <style>
+    #vanta {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    body > *:not(#vanta) {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="vanta"></div>
+
+  <header class="container">
+    <nav class="navbar">
+      <a class="brand" href="index.html">
+        <img class="logo" src="rizz/assets/png.png" alt="solo central logo">
+        <h1>solo central v6</h1>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link active" href="index.html">
+          <img src="icons/nav-home.svg" alt="">
+          <span class="nav-text">home</span>
+        </a>
+        <a class="nav-link" href="g.html">
+          <img src="icons/nav-games.svg" alt="">
+          <span class="nav-text">games</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+<div class="search-container">
+  <form id="uv-form">
+    <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"> 
+    <input 
+      id="uv-address" 
+      type="text" 
+      placeholder="SEARCH BOI" 
+      class="search-input" 
+      autocomplete="off"
+    >
+    <button type="submit" class="search-btn">Search</button>
+  </form>
+
+  <div class="desc">
+    <p id="uv-error"></p>
+    <pre id="uv-error-code"></pre>
+  </div>
+</div>
+
+<script src="/dvzn/uv.bundle.js" defer></script>
+<script src="/dvzn/uv.config.js?cdn" defer></script>
+          <script src="dvzns/uv/uv.bundle.js" defer></script>
+          <script src="dvzns/uv/uv.config.js" defer></script>
+          <script src="dvzns/register-sw.js" defer></script>
+          <script src="dvzns/search.js" defer></script>
+          <script src="dvzns/index.js" defer></script>
+          <script src="dvzns/error.js" defer></script>
+
+
+
+  <script src="vanta/three.js"></script>
+  <script src="vanta/idk.js"></script>
+  <script>
+    VANTA.CELLS({
+      el: "#vanta",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      color1: 0xffffff,
+      color2: 0xffffff
+    })
+  </script>
+</body>
+</html>

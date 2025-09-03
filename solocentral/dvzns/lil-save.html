@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui, shrink-to-fit=yes">
+  <title>Proxy (leave pls)</title>
+  <meta property="og:title" content="solo central v5">
+  <meta name="theme-color" content="#00fff7">
+  <meta name="msapplication-TileColor" content="#00fff7">
+  <meta property="og:image" content="/rizzy/q.gif">
+  <meta name="description" content="the games, for you.">
+  <meta property="og:description" content="the games, for you.">
+</head>
+
+  <body>
+    <div id="background"></div>
+    <div id="particles-js"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+
+      var tables = document.getElementsByTagName("table");
+      
+
+      for (var i = 0; i < tables.length; i++) {
+          var table = tables[i];
+          table.parentNode.removeChild(table);
+      }
+  });
+  </script>
+    <!-- partial -->
+      <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'></script>
+    <script src='https://code.jquery.com/jquery-1.11.1.min.js'></script><script src="/script.js"></script>
+      <div id="login-box">
+        <div class="logo">
+        </div><!-- /.logo -->
+        <div class="controls">
+            <h1>romans stupid proxy</h1>
+            <form id="uv-form">
+                <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/> 
+                <input id="uv-address" type="text" placeholder="search with me you degen." class="form__input"/>
+              </form>
+              <div class="desc left-margin">
+                <p id="uv-error"></p>
+                <pre id="uv-error-code"></pre>
+              </div>
+          </div>
+          <script src="uv/uv.bundle.js" defer></script>
+          <script src="uv/uv.config.js" defer></script>
+          <script src="register-sw.js" defer></script>
+          <script src="search.js" defer></script>
+          <script src="index.js" defer></script>
+          <script src="error.js" defer></script>
+        </div>
+      </div>
+      <style>
+        p{
+          color: white
+        }
+        h2{
+          color: white
+        }
+        h5{
+          color: white;
+        }
+        body{
+          text-align: center;
+        }
+        a{
+          text-align: left;
+        }
+        body, html {
+      height: 100%;
+      background-repeat: no-repeat;
+      background:black;
+      position: relative;
+    }
+    #login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 350px;
+      margin: 0 auto;
+      background: rgba(48, 46, 45, 1);
+      min-height: 250px;
+      padding: 20px;
+      z-index: 9999;
+    }
+    #login-box .logo .logo-caption {
+      font-family: 'Poiret One', cursive;
+      color: white;
+      text-align: center;
+      margin-bottom: 0px;
+    }
+    #login-box .logo .tweak {
+      color: #b1c900;
+    }
+    #login-box .controls {
+      padding-top: 30px;
+    }
+    #login-box .controls input {
+      border-radius: 0px;
+      background: rgb(98, 96, 96);
+      border: 0px;
+      color: white;
+    }
+    #login-box .controls input:focus {
+      box-shadow: none;
+    }
+    #login-box .controls input:first-child {
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+    #login-box .controls input:last-child {
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+    #login-box button.btn-custom {
+      border-radius: 2px;
+      margin-top: 8px;
+      background:#b1c900;
+      border-color: rgba(48, 46, 45, 1);
+      color: white;
+    }
+    #login-box button.btn-custom:hover{
+      -webkit-transition: all 500ms ease;
+      -moz-transition: all 500ms ease;
+      -ms-transition: all 500ms ease;
+      -o-transition: all 500ms ease;
+      transition: all 500ms ease;
+      background: rgba(48, 46, 45, 1);
+      border-color: #b1c900;
+    }
+    #particles-js{
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: 50% 50%;
+        position: fixed;
+        top: 0px;
+        z-index:1;
+    }
+    #h2{
+      color: white;
+    }
+      </style>
+<script src="vanta/three.r134.min.js"></script>
+<script src="vanta/vanta.waves.min.js"></script>
+<script>
+  VANTA.WAVES({
+    el: "#background",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0x0,
+    waveHeight: 17.50,
+    waveSpeed: 0.65,
+    zoom: 0.85
+  })
+</script>
+  </body>
+</html>

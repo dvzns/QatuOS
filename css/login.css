@@ -1,0 +1,44 @@
+.install-box,.login-wrap {
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(25px);
+  padding:24px;
+  border-radius:16px;
+  display:flex;flex-direction:column;
+  gap:12px;
+  width:320px;
+  color:#fff
+}
+.install-box input,.install-box select,.login-wrap input {
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  background:rgba(255,255,255,.15);
+  color:#fff
+}
+.install-box button,.login-wrap button {
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#0af;
+  font-weight:600;
+  color:#fff;
+  cursor:pointer
+}
+.user-list {
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-bottom:20px
+}
+.user-list .user {
+  cursor:pointer;
+  text-align:center;
+  color:#fff
+}
+.user-list img {
+  width:72px;height:72px;
+  border-radius:50%;
+  margin-bottom:8px;
+  box-shadow:0 4px 15px rgba(0,0,0,.4)
+}

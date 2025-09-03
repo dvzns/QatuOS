@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui, shrink-to-fit=yes">
+  <title>solos stupid web proxy</title>
+  <meta property="og:title" content="solos stupid web proxy">
+  <meta name="theme-color" content="#00fff7">
+  <meta name="msapplication-TileColor" content="#00fff7">
+  <meta property="og:image" content="/boo/solocentral.gif">
+  <meta name="description" content="stupid project">
+  <meta property="og:description" content="stupid project">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="background"></div>
+  <div id="login-box">
+<div class="logo">
+  <img src="boo/solocentral.gif" alt="Logo" style="height:10rem; border-radius:150px;">
+</div>
+        <div class="controls">
+            <h1>solos stupid web proxy</h1>
+            <form id="uv-form">
+                <input id="uv-search-engine" value="https://www.duckduckgo.com/search?q=%s" type="hidden"/> 
+                <input id="uv-address" type="text" placeholder="search with me you degen." class="form__input"/>
+              </form>
+              <div class="desc left-margin">
+                <p id="uv-error"></p>
+                <pre id="uv-error-code"></pre>
+              </div>
+          </div>
+          <script src="uv/uv.bundle.js" defer></script>
+          <script src="uv/uv.config.js" defer></script>
+          <script src="register-sw.js" defer></script>
+          <script src="search.js" defer></script>
+          <script src="index.js" defer></script>
+          <script src="error.js" defer></script>
+        </div>
+    </div>
+  </div>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: bold;
+      background: transparent;
+      color: #fff;
+      overflow: hidden;
+    }
+    #background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+    }
+    #login-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 350px;
+      max-width: 90vw;
+      background: rgba(34, 34, 34, 0.85);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      min-height: 280px;
+      padding: 32px 28px;
+      z-index: 2;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+    #login-box .logo {
+      margin-bottom: 12px;
+    }
+    #login-box .controls {
+      padding-top: 10px;
+    }
+    #login-box h1 {
+      font-size: 2rem;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      color: #00fff7;
+      text-shadow: 0 2px 8px #000a;
+    }
+    #login-box .controls input {
+      border-radius: 8px;
+      background: rgba(98, 96, 96, 0.85);
+      border: none;
+      color: #fff;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      width: 80%;
+      font-size: 1rem;
+      outline: none;
+      transition: box-shadow 0.2s;
+      box-shadow: 0 2px 8px #0002;
+    }
+    #login-box .controls input:focus {
+      box-shadow: 0 0 0 2px #00fff7;
+    }
+    #login-box button.btn-custom {
+      border-radius: 8px;
+      margin-top: 8px;
+      background: linear-gradient(90deg, #00fff7 0%, #b1c900 100%);
+      border: none;
+      color: #222;
+      font-weight: bold;
+      padding: 10px 28px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #0002;
+      transition: background 0.3s, color 0.3s;
+    }
+    #login-box button.btn-custom:hover {
+      background: linear-gradient(90deg, #b1c900 0%, #00fff7 100%);
+      color: #fff;
+    }
+    .desc.left-margin {
+      margin-top: 18px;
+      text-align: left;
+      color: #eee;
+      font-size: 0.95rem;
+    }
+    p, h2, h5, pre {
+      color: #fff;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: bold;
+    }
+    a {
+      color: #00fff7;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #b1c900;
+    }
+    @media (max-width: 600px) {
+      #login-box {
+        min-width: 0;
+        width: 95vw;
+        padding: 18px 6vw;
+      }
+      #login-box h1 {
+        font-size: 1.2rem;
+      }
+      #login-box .controls input {
+        width: 95%;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+<script src="vanta/three.r134.min.js"></script>
+<script src="vanta/vanta.waves.min.js"></script>
+<script>
+VANTA.WAVES({
+  el: "#background",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0x0,
+  waveHeight: 17.50,
+  waveSpeed: 0.65,
+  zoom: 0.85
+})
+</script>
+  </body>
+</html>
