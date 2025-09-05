@@ -1,5 +1,5 @@
 * {
-  cursor: url('/boot/efi/assets/cursor.png') 16 16, auto;
+  cursor: url('../boot/efi/assets/cursor.png') 16 16, auto;
   -webkit-user-select: none;
   user-select: none;
   box-sizing: border-box;
@@ -34,7 +34,7 @@ body,html {
 .boot-options {margin-top:12px;display:flex;gap:8px}
 .boot-option {background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.04);color:#fff;padding:8px 12px;border-radius:8px;cursor:pointer}
 .boot-option.active {background:#007aff;color:#fff;box-shadow:0 8px 20px rgba(0,122,255,0.18)}
-.enter-screen {background: url('/boot/efi/assets/wall.png') center/cover no-repeat; transition:opacity .6s ease}
+.enter-screen {background: url('../boot/efi/assets/wall.png') center/cover no-repeat; transition:opacity .6s ease}
 .enter-box {padding:36px;border-radius:16px;background:rgba(0,0,0,0.5);backdrop-filter:blur(12px);display:flex;flex-direction:column;align-items:center;gap:18px}
 .enter-logo {width:92px;height:auto}
 .enter-btn {padding:12px 28px;border-radius:12px;border:none;background:rgba(255,255,255,0.14);color:#fff;font-weight:600;cursor:pointer;transition:background .18s}
@@ -42,7 +42,7 @@ body,html {
 .loading-screen {background:#000;transition:opacity .6s ease}
 .loading-gif {width:80px;height:80px;margin-bottom:12px}
 .loading-text {color:#fff;font-size:16px}
-.wallpaper {position:fixed;inset:0;background:url('/boot/efi/assets/wall.png') center/cover no-repeat;opacity:0;transition:opacity .6s ease;z-index:0}
+.wallpaper {position:fixed;inset:0;background:url('../boot/efi/assets/wall.png') center/cover no-repeat;opacity:0;transition:opacity .6s ease;z-index:0}
 .topbar {position:fixed;top:12px;left:18px;right:18px;height:36px;border-radius:12px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(16px);background:rgba(8,8,8,0.45);z-index:1200;transition:opacity .6s ease}
 .topbar-left {font-weight:700;color:#fff}
 .topbar-right {display:flex;gap:12px;color:#fff;font-weight:600}
