@@ -128,10 +128,10 @@ function makeWindow(title, content) {
 }
 
 function openBrowser() {
-  makeWindow("Browser", `<iframe src="/qatubrowser" style="width:100%;height:100%;border:none;"></iframe>`)
+  makeWindow("Browser", `<iframe src="../qatubrowser/index.html" style="width:100%;height:100%;border:none;"></iframe>`)
 }
 function openRizz() {
-  makeWindow("Solo Central", `<iframe src="/solocentral" style="width:100%;height:100%;border:none;"></iframe>`)
+  makeWindow("Solo Central", `<iframe src="../solocentral/index.html" style="width:100%;height:100%;border:none;"></iframe>`)
 }
 function openTerminal() {
   const termContent = document.createElement("div")
